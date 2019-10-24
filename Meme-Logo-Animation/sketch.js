@@ -11,6 +11,8 @@ var logoSpeedY = 2;
 // Image
 var backgroundImg;
 
+var textSpeed = 1;
+
 function preload() {
     backgroundImg = loadImage('bg1.jpg')
 }
@@ -23,12 +25,15 @@ function setup() {
     fill('plum');
 }
 
+
+
 function draw() {
 
     var logoName1Width = textWidth(logoName1);
 
+
     background(254);
-    image(backgroundImg, 0, 0, width, height)
+
     textSize(75);
 
     textStyle(ITALIC);
@@ -42,17 +47,23 @@ function draw() {
     textAlign(LEFT, BOTTOM);
     text(logoName2, 150, logoName2Y);
 
+    //    Top Right
     if (mouseX > width / 2 && mouseY < height / 2) {
         background('black')
         fill('red');
+
+        translate(200, -100);
+        rotate(QUARTER_PI);
+
         textAlign(LEFT, CENTER);
         text(logoName1, logoName1X + 100, logoName1Y);
 
         textAlign(LEFT, BOTTOM);
         text(logoName2, 150, logoName2Y);
 
+    // Top Left
     } else if (mouseX < width / 2 && mouseY < height / 2) {
-        background('green')
+        image(backgroundImg, 0, 0, width, height)
         fill('blue');
         textAlign(LEFT, CENTER);
         text(logoName1, logoName1X + 100, logoName1Y);
@@ -60,16 +71,27 @@ function draw() {
         textAlign(LEFT, BOTTOM);
         text(logoName2, 150, logoName2Y);
 
+    // Bottom Right
     } else if (mouseX > width / 2 && mouseY > height / 2) {
         background('red')
         fill('yellow')
+
+
+        textSize(textSpeed)
+        textSpeed += 1;
+        
+        if (textSpeed > 100) {
+            textSpeed = 100
+        }
         textAlign(LEFT, CENTER);
         text(logoName1, logoName1X + 100, logoName1Y);
 
         textAlign(LEFT, BOTTOM);
         text(logoName2, 150, logoName2Y);
-    } else {
 
+    // Bottom Left
+    } else {
+        background('yellow')
         fill('green')
         textAlign(LEFT, CENTER);
         text(logoName1, logoName1X + 100, logoName1Y);
@@ -77,7 +99,6 @@ function draw() {
         textAlign(LEFT, BOTTOM);
         text(logoName2, 150, logoName2Y);
     }
-
 
 
     logoName1X += logoSpeedX;
@@ -96,8 +117,6 @@ function draw() {
         console.log('mouse is pressed')
         textAlign(LEFT, CENTER);
         text(logoName1, 100, 200);
-
-
 
         textAlign(LEFT, BOTTOM);
         text(logoName2, 150, 360);

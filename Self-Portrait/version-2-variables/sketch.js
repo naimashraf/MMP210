@@ -1,41 +1,46 @@
-/* 
-    self portrait
-    by owen 
-    9/12/2019
-*/
-
 function setup() {
     createCanvas(600, 400);
 }
 
 function draw() {
-    background(100, 0, 255);
+    var backgroundColor = 'lightblue';
+    var lavenderColor = "LAVENDER";
+    
+    var bodyX = 200;
+    var bodyY = 395;
+    var bodyW = 120;
+    var bodyH = 240;
+    
+    
+    background(backgroundColor);
 
-    fill("LAVENDER");
+    fill(lavenderColor);
     noStroke();
 
+    // Body
     fill('grey');
-    ellipse(200, 395, 120, 240);
+    ellipse(bodyX, bodyY, bodyW, bodyH);
 
     // face
     fill('white')
     ellipse(200, 184, 142, 200);
 
+    // Eyebrow Stroke
     stroke(89, 46, 20);
+    // Left Eyebrow
     arc(170, 155, 20, 10, 996, 760);
+
+    // Right Eyebrow
     arc(226, 155, 20, 10, 996, 760);
 
     // eyes
     fill('black');
+    // Left Eye
     ellipse(171, 166, 15);
+    
+    // Right Eye
     ellipse(225, 166, 15);
-
-    //Eyeballs
-    //    noStroke()
-    //    fill(255)
-    //    ellipse(171, 166, 8, 8);
-    //    ellipse(225, 166, 8, 8);
-
+    
     //Nose
     fill(247, 221, 155)
     triangle(190, 200, 210, 200, 200, 160);
@@ -48,6 +53,4 @@ function draw() {
     //hair
     fill(87, 60, 15);
     arc(200, 130, 120, 120, PI, TWO_PI);
-
-
 }
